@@ -1,13 +1,15 @@
 const countVeg = require('../katas/veg-counter');
 
 describe('countVeg', () => {
-    test('return string for quantity when veg is not found', () => {
-        expect(countVeg("")).toBe("");
+    test('return 0 for quantity when veg is not found', () => {
+        expect(countVeg([])).toBe(0);
     })
     test('return quantity when one veg is found' , () => {
         const veg = [
-            {name: 'Broccoli', type: 'brassica', quantity: 1}]
-        const actual = countVeg(veg);
+            {name: 'Broccoli', type: 'brassica', quantity: 1}
+        ]
+        const vegType = 'brassica';
+        const actual = countVeg(veg, vegType);
         const expected = 1;
         expect(actual).toBe(expected);
     })
@@ -22,7 +24,6 @@ describe('countVeg', () => {
           ];
         const vegType = 'root';
         const actual = countVeg(veg,vegType);
-        //const quant = veg.quantity;
         const expected = 9;
         expect(actual).toBe(expected);
 

@@ -14,12 +14,12 @@
 
 function countVeg(veg, vegType) {
   if(veg.length === 0) {
-    return "";
+    return 0;
   }
   let total = 0;
-  for(let i=0; i<veg.length; i++) {
+  for(let i = 0; i < veg.length; i++) {
     if(veg[i].type === vegType) {
-      total+= veg[i].quantity;
+      total += veg[i].quantity;
     }
   }
   return total;
