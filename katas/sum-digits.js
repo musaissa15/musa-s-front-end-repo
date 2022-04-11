@@ -6,39 +6,23 @@
   sumDigits(10.5)
     --> 6
 */
-
 function sumDigits(num) {
-  const numArr = String(num).match(/\d/g)
-  let sum = 0
-  console.log(numArr)
-  for(let i=0; i<numArr.length; i++) {
-    sum += Number(numArr[i])
+  //change number to string then split the number
+  const sum = num.toString().split('');
+  
+  //change string back to Number
+  var digit = sum.map(num => Number(num))
+  var newDigit = sum.filter(Number).map(num => Number(num))
+
+  //add the numbers together => for loop
+  let total = 0;
+  for(let i = 0; i < newDigit.length; i++) {
+  const currentDigit = newDigit[i]
+  total += currentDigit
   }
-  return sum
-}
+  return total
+  }
 
 module.exports = sumDigits;
 
-
-
-
-
-
-
-
-// function sumDigits(num) {
-//   const multiDigit = num.toString().replace(/\D/g, '').split("");
-  
-//   for (let i = 0; i < multiDigit.length; i++) {
-//     multiDigit[i] = Number(multiDigit[i]) 
-//   }  
-//   const sumWithInitial = multiDigit.reduce(
-//   (previousValue, currentValue) => previousValue + currentValue
-// ) 
-// return sumWithInitial;
-   
-// }
- // const multiDigit = num.toString().replace(/\D/, '').split('')
-//    const multiDigit = num.toString().split(/\D/g);
-// const multiDigit = num.toString().split(/\D/g);
-  // const multiDigit = num.toString().replace(/\D/, '').split('')
+//return digit.reduce((prevNum, currentNum) => prevNum + currentNum, 0)
